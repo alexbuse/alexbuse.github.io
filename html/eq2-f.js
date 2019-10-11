@@ -16,20 +16,20 @@ function read_coefficients()
 
 function compute_solutions(coef)
 {
-	var delta = b*b -4*a*c;
+	var delta = coef.b*coef.b -4*coef.a*coef.c;
 	var x1_re, x1_im, x2_re, x2_im; //pentru a nu deveni variabile globale, trebuie declarate cu var
 	
 	if (delta>=0){
-		x1_re = (-b - Math.sqrt(delta)) / (2*a);
-		x2_re = (-b - Math.sqrt(delta)) / (2*a);
+		x1_re = (-coef.b - Math.sqrt(delta)) / (2*coef.a);
+		x2_re = (-coef.b - Math.sqrt(delta)) / (2*coef.a);
 		x1_im = 0;
 		x2_im = 0;
 	}
 	else {
-		x1_re = -b / (2 * a);
-		x2_re = -b / (2 * a);
-		x1_im = (- Math.sqrt(-delta)) / (2*a);
-		x2_im = (+ Math.sqrt(-delta)) / (2*a);
+		x1_re = -coef.b / (2 * coef.a);
+		x2_re = -coef.b / (2 * coef.a);
+		x1_im = (- Math.sqrt(-delta)) / (2*coef.a);
+		x2_im = (+ Math.sqrt(-delta)) / (2*coef.a);
 	}
 	var solutions  = {};
 	solutions.x1_re = x1_re;
