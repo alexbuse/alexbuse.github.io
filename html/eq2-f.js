@@ -2,7 +2,7 @@ document.getElementById("id_logic_version").innerHTML = "Logic version = 2019.10
 
 document.getElementById("id_solve").addEventListener("click", solve);
 
-function read)coefficients()
+function read_coefficients()
 {
 	var a = document.getElementById("id_a").value;
 	var b = document.getElementById("id_b").value;
@@ -14,7 +14,7 @@ function read)coefficients()
 	return coef;
 }
 
-function compute_Solutions()
+function compute_solutions()
 {
 	var delta = b*b -4*a*c;
 	var x1_re, x1_im, x2_re, x2_im; //pentru a nu deveni variabile globale, trebuie declarate cu var
