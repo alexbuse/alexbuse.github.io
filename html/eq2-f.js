@@ -14,7 +14,7 @@ function read_coefficients()
 	return coef;
 }
 
-function compute_solutions()
+function compute_solutions(coef)
 {
 	var delta = b*b -4*a*c;
 	var x1_re, x1_im, x2_re, x2_im; //pentru a nu deveni variabile globale, trebuie declarate cu var
@@ -40,7 +40,7 @@ function compute_solutions()
 	return solutions;
 }
 
-function print_solutions()
+function print_solutions(solutions)
 {
 	document.getElementById("id_x1").innerHTML = solutions.x1_re + "+" + solutions.x1_im + "i";
 	document.getElementById("id_x2").innerHTML = solutions.x2_re + "+" + solutions.x2_im + "i";
