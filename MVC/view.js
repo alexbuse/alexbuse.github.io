@@ -1,6 +1,6 @@
 class t_eq2_view{
 	constructor(){
-		document.getElementById("id_solve").addEventListener("click", this.on_button_pressed);
+		document.getElementById("id_solve").addEventListener("click", this.on_button_pressed.bind(this));
 	}
 	
 	set_events(events)
