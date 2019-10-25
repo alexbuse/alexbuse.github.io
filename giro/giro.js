@@ -21,5 +21,6 @@ function on_motion_uab(e)
 	document.getElementById("id_acc_y").innerHTML = Math.round(acc.y*100)/100;
 	document.getElementById("id_acc_z").innerHTML = Math.round(acc.z*100)/100;
 	
-	document.getElementById("idd_beta_acc").innerHTML= Math.atan(acc.x/acc.z);
+	document.getElementById("idd_beta_acc").innerHTML= Math.round(Math.atan(acc.x/acc.z)/Math.PI*180*100)/100;
+	document.getElementById("idd_gamma_acc").innerHTML= Math.round(Math.atan(acc.y/acc.z)/Math.PI*180*100)/100;
 }	
