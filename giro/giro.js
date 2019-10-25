@@ -9,7 +9,7 @@ window.addEventListener("devicemotion",on_motion_uab);
 function desenare(beta, gamma)
 {
 	var canvas = document.getElementById("id_canvas");
-	var context = canvas.getContext("2d");
+	var context = canvas.getContext('2d');
 	
 	context.clearRect(0,0,canvas.width, canvas.height);
 	
