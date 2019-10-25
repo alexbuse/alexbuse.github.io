@@ -42,8 +42,8 @@ function on_motion_uab(e)
 	
 	//unghiuri de inclinare
 	
-	var beta = -Math.atan(acc.y / acc.z) / Math.PI * 180;
-	var gamma = Math.atan(acc.x / acc.z) / Math.PI * 180;
+	var beta = -Math.atan(acc.x / acc.z) / Math.PI * 180;
+	var gamma = Math.atan(acc.y / acc.z) / Math.PI * 180;
 	
 	document.getElementById("id_beta_acc").innerHTML = Math.round(beta*100)/100;
 	document.getElementById("id_gamma_acc").innerHTML = Math.round(gamma*100)/100;
