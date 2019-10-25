@@ -9,13 +9,14 @@ function desenare(beta, gamma)
 	var canvas = document.getElementById("id_canvas");
 	var context = canvas.getContext("2d");
 	
-	context.clearRect(0,0,canvas.width, canvas.height);
-	var r = 10;	
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	
+	var r = 10;
+	
 	context.beginPath();
-
-	var x = canvas.width/2 + gamma/90 * (canvas.width/2 - r);
-	var y = canvas.height/2 + beta/90 * (canvas.height/2 - r);
-	context.arc(x, y, r, 0, 2*Math.PI);
+	var x = canvas.width / 2 + beta / 90 * (canvas.width / 2 - r);
+	var y = canvas.height / 2 + gamma / 90 * (canvas.height / 2 - r);
+	context.arc(x, y, r, 0, 2 * Math.PI);
 	context.stroke();
 	
 
