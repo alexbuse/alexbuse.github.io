@@ -1,10 +1,8 @@
 document.getElementById("id_logic_version").innerHTML = "Logic version = 2019.10.25.4";
 
 window.addEventListener("deviceorientation",on_orientation_uab);
-
 window.addEventListener("devicemotion",on_motion_uab);
 
-window.addEventListener("devicemotion",on_motion_uab);
 
 function desenare(beta, gamma)
 {
@@ -12,14 +10,15 @@ function desenare(beta, gamma)
 	var context = canvas.getContext("2d");
 	
 	context.clearRect(0,0,canvas.width, canvas.height);
-	
+	var r = 10;	
 	context.beginPath();
-	var r = 10;
+
 	var x = canvas.width/2 + gamma/90 * (canvas.width/2 - r);
 	var y = canvas.height/2 + beta/90 * (canvas.height/2 - r);
 	context.arc(x, y, r, 0, 2*Math.PI);
 	context.stroke();
 	
+
 }
 
 function on_orientation_uab(e)
@@ -28,7 +27,7 @@ function on_orientation_uab(e)
 	document.getElementById("id_beta").innerHTML = Math.round(e.beta*100)/100;
 	document.getElementById("id_gamma").innerHTML = Math.round(e.gamma*100)/100;
 
-
+	desenare(e.beta, e.gamma);
 
 }	
 
@@ -42,8 +41,8 @@ function on_motion_uab(e)
 	
 	//unghiuri de inclinare
 	
-	var beta = -Math.atan(acc.x/acc.z)/Math.PI*180;
-	var gamma = Math.atan(acc.y/acc.z)/Math.PI*180;
+	var beta = -Math.atan(acc.y / acc.z) / Math.PI * 180;
+	var gamma = Math.atan(acc.x / acc.z) / Math.PI * 180;
 	
 	document.getElementById("id_beta_acc").innerHTML = Math.round(beta*100)/100;
 	document.getElementById("id_gamma_acc").innerHTML = Math.round(gamma*100)/100;
