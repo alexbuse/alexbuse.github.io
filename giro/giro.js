@@ -28,7 +28,7 @@ function on_orientation_uab(e)
 	document.getElementById("id_beta").innerHTML = Math.round(e.beta*100)/100;
 	document.getElementById("id_gamma").innerHTML = Math.round(e.gamma*100)/100;
 
-	desenare(e.beta, e.gamma);
+//	desenare(e.beta, e.gamma);
 
 }	
 
@@ -48,5 +48,5 @@ function on_motion_uab(e)
 	document.getElementById("id_beta_acc").innerHTML = Math.round(beta*100)/100;
 	document.getElementById("id_gamma_acc").innerHTML = Math.round(gamma*100)/100;
 	
-//	desenare(beta, gamma);
+	desenare(beta, gamma);
 }	
