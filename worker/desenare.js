@@ -1,6 +1,31 @@
-document.getElementById("id_logic").innerHTML = "Logic version = 2019.11.1.0";
+document.getElementById("id_logic").innerHTML = "Logic version = 2019.11.1.2";
 document.getElementById("id_start").addEventListener("click", start);
 document.getElementById("id_stop").addEventListener("click", stop);
+//se declara un timer global pentru a putea fi apelat de functii
+var timer_id;
+//se declara unghi ca structura pentru a putea fi transmis ca referinta functiei
+var unghi = {};
+unghi.valoare = 0;
+
+function desenare(context, canvas, raza_mica, raza_mare, unghi)
+{
+		//desenam un cerc la pozitia data de unghi
+		//calculam x si y ca centru al cercului mic aflat pe cercul mare
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		var x = canvas.width/2 + raza_mare * Math.cos(unghi.valoare * Math.PI / 180 );
+		var y = canvas.height/2 + raza_mare * Math.sin(unghi.valoare * Math.PI / 180 );
+		//incepem sa desenam
+		context.beginPath();
+		context.arc(x, y, raza_mica, 0, 2 * Math.PI); //coordonatele centrului cercului mic,
+													  //raza si unchiul pornire si oprire
+		context.stroke();
+		
+		unghi.valoare++;
+		if(unghi.valoare == 360) unghi.valoare = 0;
+
+}
+
+
 
 function start()
 {
@@ -8,31 +33,19 @@ function start()
 	document.getElementById("id_stop").disabled = false;
 	var canvas = document.getElementById("id_canvas");
 	var context = canvas.getContext("2d");
-	var unghi = 0;
+
 	var raza_mare = 100;
 	var raza_mica = 10;
 	
-	
-	while (1)
-	{
-		//desenam un cerc la pozitia data de unghi
-		//calculam x si y ca centru al cercului mic aflat pe cercul mare
-		context.clearRect(0, 0, canvas.width, canvas.height);
-		var x = canvas.width + raza_mare * Math.cos(unghi * Math.PI / 180 );
-		var y = canvas.height + raza_mare * Math.sin(unghi * Math.PI / 180 );
-		//incepem sa desenam
-		context.beginPath();
-		context.arc(x, y, raza_mica, 0, 2 * Math.PI); //coordonatele centrului cercului mic, raza si unchiul pornire si oprire
+	timer_id = setInterval(desenare, 20, context, canvas, raza_mica, raza_mare, unghi);
+	desenare(context, canvas, raza_mica, raza_mare, unghi);
 		
-		context.stroke();
-		
-		unghi++;
-		if(unghi == 360) unghi = 0;
-	}
 }
 	
 function stop()
 {
+	clearInterval(timer_id);
+	
 	document.getElementById("id_start").disabled = false;
 	document.getElementById("id_stop").disabled = true;
 }
