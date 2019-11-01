@@ -6,7 +6,7 @@ function este_prim(n)
 	return false;
 }
 
-for (var i = 1E9;i < 1E10 ; i++) //1E9 inseamna 1 urmat de 9 zerouri, un miliard
+for (var i = 1E11;i < 1E12 ; i++) //1E9 inseamna 1 urmat de 9 zerouri, un miliard
 	if(este_prim(i)){
 		postMessage(i);
 	}
