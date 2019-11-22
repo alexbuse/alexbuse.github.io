@@ -1,4 +1,4 @@
-document.getElementById("id_logic").innerHTML = "Logic version = 2019.11.1.4";
+document.getElementById("id_logic").innerHTML = "Logic version = 2019.11.22.0";
 document.getElementById("id_start").addEventListener("click", start);
 document.getElementById("id_stop").addEventListener("click", stop);
 //se declara un timer global pentru a putea fi apelat de functii
@@ -6,6 +6,7 @@ var timer_id;
 //se declara unghi ca structura pentru a putea fi transmis ca referinta functiei
 var unghi = {};
 unghi.valoare = 0;
+var muncitor=null;
 
 function desenare(context, canvas, raza_mica, raza_mare, unghi)
 {
@@ -34,11 +35,17 @@ function start()
 	var canvas = document.getElementById("id_canvas");
 	var context = canvas.getContext("2d");
 
-	var muncitor = new Worker("calcul_prime.js");
-	muncitor.onmessage = function(e){
-		document.getElementById("id_prime").innerHTML = e.data;
+	if (muncitor==null)
+	{
+		var muncitor = new Worker("calcul_prime.js");
+		muncitor.onmessage = function(e)
+		{
+			document.getElementById("id_prime").innerHTML = e.data;
+		}
 	}
-
+	else
+		muncitor.postMessage("Start");
+	
 	var raza_mare = 100;
 	var raza_mica = 10;
 	
@@ -53,4 +60,7 @@ function stop()
 	
 	document.getElementById("id_start").disabled = false;
 	document.getElementById("id_stop").disabled = true;
+	
+	
+	muncitor.postMessage("Stop");
 }
