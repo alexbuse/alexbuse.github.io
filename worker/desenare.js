@@ -37,11 +37,12 @@ function start()
 
 	if (muncitor==null)
 	{
-		var muncitor = new Worker("calcul_prime.js");
+		muncitor = new Worker("calcul_prime.js");
 		muncitor.onmessage = function(e)
 		{
 			document.getElementById("id_prime").innerHTML = e.data;
 		}
+		muncitor.postMessage("Start");
 	}
 	else
 		muncitor.postMessage("Start");
