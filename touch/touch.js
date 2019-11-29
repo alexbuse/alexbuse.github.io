@@ -1,7 +1,8 @@
-document.getElementById("id_logic").innerHTML = "2019.11.29.3";
+document.getElementById("id_logic").innerHTML = "2019.11.29.4";
 
 window.addEventListener("touchstart", touch_start_uab, {passive : false});
 window.addEventListener("touchmove", touch_move_uab, {passive : false});
+window.addEventListener("touchend", touch_end_uab, {passive : false});
 
 var canvas  = document.getElementById("id_canvas");
 var context = canvas.getContext("2d");
@@ -71,4 +72,23 @@ function touch_move_uab(e)
 		last_touch[touch_index].x = t[i].x;
 		last_touch[touch_index].y = t[i].y;
 	}
+}
+
+function touch_end_uab(e)
+{
+	e.preventDefault();
+	
+	var t = e.changedTouches;
+	for(var i = 0; i < t.lenght; i++)
+	{
+		var touch_index = -1;
+		for (var j =0; j< last_touch.lenght; j++ )
+			if(t[i].identifier == last_touch[j].id)
+			{
+				touch_index = j; 
+				break;
+			}
+		last_touch.splice(touch_index, 1);
+	}
+	
 }
