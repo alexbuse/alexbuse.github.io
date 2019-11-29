@@ -1,4 +1,4 @@
-document.getElementById("id_logic").innerHTML = "2019.11.29.1";
+document.getElementById("id_logic").innerHTML = "2019.11.29.2";
 
 window.addEventListener("touchstart", touch_start_uab);
 window.addEventListener("touchmove", touch_move_uab);
