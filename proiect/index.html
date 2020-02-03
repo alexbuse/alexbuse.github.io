@@ -1,25 +1,26 @@
-  
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MediaCapture and Streams API</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="main.css">
+</head>
 <body>
-
-<video width = "640px" height "480px" id = "id_video" autoplay controls></video>
-  
-<p>Nume</p>
-<input type="text" id="nume"></input>
-
-<p>Prenume</p>
-<input type="text" id="prenume"></input>
-
-<br>
-<br>
-<button type="button" id="captureaza">Solve</button>
-
-<script src = "cam.js"></script>
-
-
-</body>
-
+    <header>
+        <h1>MediaCapture, MediaRecorder and Streams API</h1>
+    </header>
+    <main>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit molestiae itaque facere totam saepe tempore esse temporibus, quae reprehenderit aliquid iusto ea laborum, iure eligendi odio exercitationem sapiente illum quos.</p>
+        
+        <p><button id="btnStart">START RECORDING</button><br/>
+        <button id="btnStop">STOP RECORDING</button></p>
+        
+        <video controls></video>
+        
+        <video id="vid2" controls></video>
+        
+        <!-- could save to canvas and do image manipulation and saving too -->
+    </main> 
+  </body>
 </html>
